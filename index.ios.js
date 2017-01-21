@@ -4,9 +4,12 @@
  * @flow
  */
 
+//IMPORT CODE WE NEED
 import React, { Component } from 'react';
+//import React from 'react';       //NOTE: These two lines of ES5 code
+//var Component = React.Component; //are the same as the ES6 code above
 
-
+//import './ReactotronConfig' //NOTE: This is for the "react-o-tron"
 import {
   AppRegistry,
   StyleSheet,
@@ -14,43 +17,34 @@ import {
   View
 } from 'react-native';
 
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+//CREATE REACT COMPONENT
 export default class weekdays2 extends Component {
   render() {
     console.log('See me in chrome!')
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
+        <Text>
+          Days of the Week:
         </Text>
       </View>
     );
   }
 }
 
+
+//STYLE THE REACT COMPONENT
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    flex: 1, //NOTE: "flex: 1" is like saying "height & width at 100%"
+    flexDirection:'column', //NOTE: flex-direction defaults to "column" (but "row" makes justify-content now deal with x-axis & align-items becomes y-axis)... some things are only accessible to one or the other, so flex-direction can be very useful
+    justifyContent: 'center', //NOTE: deals w\ y-axis
+    alignItems: 'center', //NOTE: deals w\ x-axis
+    // backgroundColor: '#F5FCFF',
   },
 });
 
+
+//SHOW THE REACT COMPONENT ON THE SCREEN
 AppRegistry.registerComponent('weekdays2', () => weekdays2);
