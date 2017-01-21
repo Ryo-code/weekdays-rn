@@ -16,10 +16,12 @@ import {
   Text,
   View
 } from 'react-native';
+import DayItem from './src/day-item';
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
 //CREATE REACT COMPONENT
+//NOTE: for explanation on "default", see: http://stackoverflow.com/questions/31852933/why-es6-react-component-works-only-with-export-default
 export default class weekdays2 extends Component {
   render() {
     console.log('See me in chrome!')
@@ -28,6 +30,7 @@ export default class weekdays2 extends Component {
         <Text>
           Days of the Week:
         </Text>
+        <DayItem />
       </View>
     );
   }
