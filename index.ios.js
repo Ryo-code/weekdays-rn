@@ -17,24 +17,40 @@ import {
   View
 } from 'react-native';
 import DayItem from './src/day-item';
+import Moment from 'moment';
 
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
 //CREATE REACT COMPONENT
-//NOTE: for explanation on "default", see: http://stackoverflow.com/questions/31852933/why-es6-react-component-works-only-with-export-default
+//NOTE: for explanation on "export default", see: http://stackoverflow.com/questions/31852933/why-es6-react-component-works-only-with-export-default
 export default class weekdays2 extends Component {
   render() {
     console.log('See me in chrome!')
+
     return (
       <View style={styles.container}>
         <Text>
           Days of the Week:
         </Text>
-        <DayItem day={DAYS[0]}/>
+
+        <Text>
+          {Moment().format('ddd')}
+        </Text>
+        {/* {this.days()} */}
       </View>
     );
   }
+
+  days() { //a helper function
+    return DAYS.map(function(day){
+      //Called 7 times, one for each day of the week
+      return <DayItem day={day} />
+    });
+    // Days -> An array of DayItem components, one for each day of the week
+    // days = [<DayItem day="Sunday" />,[<DayItem day="Monday" />, etc.]
+  }
 }
+
 
 
 //STYLE THE REACT COMPONENT
