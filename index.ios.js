@@ -19,8 +19,6 @@ import {
 import DayItem from './src/day-item';
 import Moment from 'moment';
 
-const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-
 //CREATE REACT COMPONENT
 //NOTE: for explanation on "export default", see: http://stackoverflow.com/questions/31852933/why-es6-react-component-works-only-with-export-default
 export default class weekdays2 extends Component {
@@ -29,25 +27,21 @@ export default class weekdays2 extends Component {
 
     return (
       <View style={styles.container}>
-        <Text>
-          Days of the Week:
-        </Text>
-
-        <Text>
-          {Moment().format('ddd')}
-        </Text>
         {this.days()}
       </View>
     );
   }
 
   days() { //a helper function
-    return DAYS.map((day, index)=>{
-      //Called 7 times, one for each day of the week
-      return <DayItem key={index} day={day} />
-    });
-    // Days -> An array of DayItem components, one for each day of the week
-    // days = [<DayItem day="Sunday" />,[<DayItem day="Monday" />, etc.]
+    const daysItems = [];
+    for(let i = 0; i <7; i++){
+      const day = Moment().add(i, 'days').format('dddd');
+      daysItems.push(
+        <DayItem day={day} daysUntil={i} />
+      )
+    }
+    return daysItems
+
   }
 }
 
