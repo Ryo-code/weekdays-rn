@@ -36,15 +36,15 @@ export default class weekdays2 extends Component {
         <Text>
           {Moment().format('ddd')}
         </Text>
-        {/* {this.days()} */}
+        {this.days()}
       </View>
     );
   }
 
   days() { //a helper function
-    return DAYS.map(function(day){
+    return DAYS.map((day, index)=>{
       //Called 7 times, one for each day of the week
-      return <DayItem day={day} />
+      return <DayItem key={index} day={day} />
     });
     // Days -> An array of DayItem components, one for each day of the week
     // days = [<DayItem day="Sunday" />,[<DayItem day="Monday" />, etc.]
