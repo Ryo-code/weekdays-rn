@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 //IMPORT CODE WE NEED
 import React, { Component } from 'react';
 //import React from 'react';       //NOTE: These two lines of ES5 code
@@ -20,11 +14,9 @@ import DayItem from './src/day-item';
 import Moment from 'moment';
 
 //CREATE REACT COMPONENT
-//NOTE: for explanation on "export default", see: http://stackoverflow.com/questions/31852933/why-es6-react-component-works-only-with-export-default
 export default class weekdays2 extends Component {
   render() {
     console.log('See me in chrome!')
-
     return (
       <View style={styles.container}>
         {this.days()}
@@ -41,11 +33,8 @@ export default class weekdays2 extends Component {
       )
     }
     return daysItems
-
   }
 }
-
-
 
 //STYLE THE REACT COMPONENT
 const styles = StyleSheet.create({
@@ -57,7 +46,6 @@ const styles = StyleSheet.create({
     // backgroundColor: '#F5FCFF',
   },
 });
-
 
 //SHOW THE REACT COMPONENT ON THE SCREEN
 AppRegistry.registerComponent('weekdays2', () => weekdays2);
